@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bulma/css/bulma.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="hero is-warning is-fullheight is-bold">
+      <div className="hero-body">
+        <div className="container">
+          <h1 className="title is-1">Potong Link</h1>
+          <div className="columns is-gapless field has-addons ">
+            <div className="column is-two-fifths control">
+              <input
+                className="input"
+                type="text"
+                placeholder="https://put-the-link-here.com"
+              />
+              <p
+                className="help is-danger"
+                style={{ position: 'absolute' }}
+              />
+              <p
+                className="help is-success"
+                style={{ position: 'absolute' }}
+              />
+            </div>
+            <div className="column control">
+              <button
+                type="button"
+                className="button is-warning is-rounded is-inverted"
+              >
+                Shorten!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
