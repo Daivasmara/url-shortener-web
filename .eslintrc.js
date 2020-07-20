@@ -19,6 +19,7 @@ module.exports = {
   ],
   rules: {
     'react/jsx-filename-extension': 0,
+    'react/jsx-fragments': 0,
     'no-nested-ternary': 0,
   },
 };
