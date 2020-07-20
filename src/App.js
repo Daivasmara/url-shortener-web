@@ -4,7 +4,7 @@ import 'bulma/css/bulma.min.css';
 
 const {
   REACT_APP_API_ENDPOINT,
-  REACT_APP_REDIRECTOR_DOMAIN,
+  REACT_APP_REDIRECTOR_ENDPOINT,
   REACT_APP_API_HOST,
   REACT_APP_API_KEY,
 } = process.env;
@@ -70,7 +70,7 @@ function App() {
     }
   };
 
-  const shortenedLink = `${REACT_APP_REDIRECTOR_DOMAIN}/${shortenedHash}`;
+  const shortenedLink = `${REACT_APP_REDIRECTOR_ENDPOINT}/${shortenedHash}`;
   return (
     <section className="hero is-warning is-fullheight is-bold">
       <div className="hero-body">
