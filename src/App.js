@@ -25,12 +25,21 @@ function App() {
             </div>
             <div className="column control">
               <button
-                type="button"
                 className="button is-warning is-rounded is-inverted"
+                type="button"
               >
                 Shorten!
               </button>
             </div>
+          </div>
+          <div className="modal">
+            <div className="modal-background" />
+            <div className="modal-content">
+              <div className="notification is-warning has-text-centered">
+                <a className="is-size-1 has-text-weight-bold" href="htts://x.sh/ywks">https://x.sh/ywks</a>
+              </div>
+            </div>
+            <button className="modal-close is-large" type="button" aria-label="close" />
           </div>
         </div>
       </div>
