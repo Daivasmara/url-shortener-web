@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import Joi from '@hapi/joi';
 import 'bulma/css/bulma.min.css';
+import './style.css';
 
 const {
   REACT_APP_API_ENDPOINT,
