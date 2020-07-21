@@ -18,6 +18,7 @@ function Shortener() {
   useEffect(() => {
     setErrorMessage('');
     setLink('');
+    setIsCopied(false);
   }, [hash]);
 
   const schema = Joi.object({
