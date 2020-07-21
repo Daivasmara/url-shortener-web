@@ -4,11 +4,7 @@ import {
 } from 'react-router-dom';
 import Joi from '@hapi/joi';
 
-const {
-  REACT_APP_API_ENDPOINT,
-  REACT_APP_WEB_ENDPOINT,
-  REACT_APP_API_KEY,
-} = process.env;
+const { REACT_APP_API_ENDPOINT, REACT_APP_API_KEY } = process.env;
 
 function Shortener() {
   const [link, setLink] = useState('');
@@ -70,7 +66,7 @@ function Shortener() {
     }
   };
 
-  const shortenedLink = `${REACT_APP_WEB_ENDPOINT}/${hash}`;
+  const shortenedLink = `${window.location.hostname}/${hash}`;
   return (
     <section className="hero is-warning is-fullheight is-bold">
       <div className="hero-body">
