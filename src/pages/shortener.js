@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Link,
-} from 'react-router-dom';
 import Joi from '@hapi/joi';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_API_KEY } = process.env;
 
@@ -10,6 +8,7 @@ function Shortener() {
   const [link, setLink] = useState('');
   const [hash, setHash] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
@@ -111,13 +110,18 @@ function Shortener() {
                   textOverflow: 'ellipsis',
                 }}
               >
-                <Link
-                  className="is-size-2 has-text-weight-bold"
-                  to={`/${hash}`}
-                  target="_blank"
+                <CopyToClipboard
+                  text={shortenedLink}
+                  onCopy={() => setIsCopied(true)}
                 >
-                  {shortenedLink}
-                </Link>
+                  <span
+                    className="is-size-2 has-text-weight-bold has"
+                    style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                  >
+                    {shortenedLink}
+                  </span>
+                </CopyToClipboard>
+                {isCopied && <p className="help">copied to clipboard!</p>}
               </div>
             </div>
             <button
