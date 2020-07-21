@@ -2,10 +2,10 @@ import React, { Fragment, useState, useEffect } from 'react';
 import {
   useParams,
 } from 'react-router-dom';
-import 'bulma/css/bulma.min.css';
 
 const {
   REACT_APP_API_ENDPOINT,
+  REACT_APP_API_KEY,
 } = process.env;
 
 function Redirector() {
@@ -16,7 +16,11 @@ function Redirector() {
   useEffect(() => {
     async function redirectToLink() {
       try {
-        const response = await fetch(`${REACT_APP_API_ENDPOINT}/v1/link/${hash}`);
+        const response = await fetch(`${REACT_APP_API_ENDPOINT}/v1/link/${hash}`, {
+          headers: {
+            apikey: REACT_APP_API_KEY,
+          },
+        });
         const { message } = await response.json();
 
         if (response.status !== 200) {

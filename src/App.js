@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { Shortener, Redirector } from './pages';
+import 'bulma/css/bulma.min.css';
 
 function App() {
   return (

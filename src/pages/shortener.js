@@ -3,13 +3,10 @@ import {
   Link,
 } from 'react-router-dom';
 import Joi from '@hapi/joi';
-import 'bulma/css/bulma.min.css';
-import './style.css';
 
 const {
   REACT_APP_API_ENDPOINT,
   REACT_APP_WEB_ENDPOINT,
-  REACT_APP_API_HOST,
   REACT_APP_API_KEY,
 } = process.env;
 
@@ -39,7 +36,6 @@ function Shortener() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Host: REACT_APP_API_HOST,
           apikey: REACT_APP_API_KEY,
         },
         body: JSON.stringify(reqBody),
@@ -79,7 +75,7 @@ function Shortener() {
     <section className="hero is-warning is-fullheight is-bold">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title is-1">Potong Link</h1>
+          <h1 className="title is-1" style={{ fontFamily: 'Caveat, sans-serif' }}>Potong Link</h1>
           <div className="columns is-gapless field has-addons ">
             <div className="column is-two-fifths control">
               <input
