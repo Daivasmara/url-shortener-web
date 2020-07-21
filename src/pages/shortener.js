@@ -121,7 +121,11 @@ function Shortener() {
                     {shortenedLink}
                   </span>
                 </CopyToClipboard>
-                {isCopied && <p className="help">copied to clipboard!</p>}
+                <p
+                  className={`help ${(isCopied && 'is-success has-text-weight-bold') || ''}`}
+                >
+                  {isCopied ? 'copied to clipboard!' : 'click the link to copy'}
+                </p>
               </div>
             </div>
             <button
