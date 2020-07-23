@@ -96,7 +96,7 @@ function Shortener() {
                 type="button"
                 onClick={() => handleShorten()}
               >
-                Shorten!
+                Potong!
               </button>
             </div>
           </div>
