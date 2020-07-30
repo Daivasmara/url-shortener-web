@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import {
-  useParams,
-} from 'react-router-dom';
+import urlRegex from 'url-regex';
+import { useParams } from 'react-router-dom';
 
 const {
   REACT_APP_API_ENDPOINT,
@@ -28,7 +27,15 @@ function Redirector() {
           throw new Error(message);
         }
 
-        window.location.href = message.link;
+        let url;
+
+        if (urlRegex({ strict: true }).test(message.link)) {
+          url = message.link;
+        } else {
+          url = `http://${message.link}`;
+        }
+
+        window.location.href = url;
       } catch (err) {
         setErrorMessage(err.message);
       }
