@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Joi from '@hapi/joi';
+import urlRegex from 'url-regex';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_API_KEY } = process.env;
@@ -22,7 +23,7 @@ function Shortener() {
   }, [hash]);
 
   const schema = Joi.object({
-    link: Joi.string().uri().required(),
+    link: Joi.string().required(),
   });
 
   const handlePostReq = async (reqBody) => {
@@ -54,6 +55,9 @@ function Shortener() {
   const handleShorten = async () => {
     try {
       const reqBody = await schema.validateAsync({ link });
+      if (!urlRegex({ strict: false }).test(link)) {
+        throw new Error('"link" must be a valid URL');
+      }
       handlePostReq(reqBody);
     } catch (err) {
       setErrorMessage(err.message);
